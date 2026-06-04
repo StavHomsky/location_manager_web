@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <h1>Add New Location</h1>
+        <p>Create a new destination in your travel manager</p>
+
+        <form method="POST">
+
+            <label>Location Name</label>
+            <input name="name" placeholder="Example: Paris" required>
+
+            <label>Country</label>
+            <input name="country" placeholder="Example: France" required>
+
+            <label>Type</label>
+            <input name="type" placeholder="Example: City / Beach / Mountain" required>
+
+            <div class="checkbox-row">
+                <input type="checkbox" name="visited" id="visited">
+                <label for="visited">I already visited this place</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Save Location</button>
+
+            <a href="/" class="back-link">← Back to dashboard</a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

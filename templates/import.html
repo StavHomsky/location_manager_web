@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <h1>Import Locations</h1>
+        <p>Upload a JSON file and choose how to load it</p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <label>Choose JSON File</label>
+            <input type="file" name="json_file" accept=".json" required>
+
+            <label>Import Method</label>
+
+            <div class="checkbox-row">
+                <input type="radio" name="action" value="replace" id="replace" required>
+                <label for="replace">Replace current data</label>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="radio" name="action" value="append" id="append" required>
+                <label for="append">Append to existing data</label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Import Locations
+            </button>
+
+            <a href="/" class="back-link">← Back to dashboard</a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

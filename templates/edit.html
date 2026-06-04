@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-page">
+
+```
+<div class="form-card">
+
+    <h1>Edit Location</h1>
+    <p>Update your destination details</p>
+
+    <form method="POST">
+
+        <label>Location Name</label>
+        <input
+            name="name"
+            value="{{ location.name }}"
+            required
+        >
+
+        <label>Country</label>
+        <input
+            name="country"
+            value="{{ location.country }}"
+            required
+        >
+
+        <label>Type</label>
+        <input
+            name="type"
+            value="{{ location.type }}"
+            required
+        >
+
+        <div class="checkbox-row">
+
+            <input
+                type="checkbox"
+                name="visited"
+                id="visited"
+                {% if location.visited %}checked{% endif %}
+            >
+
+            <label for="visited">
+                I already visited this place
+            </label>
+
+        </div>
+
+        <button type="submit" class="submit-btn">
+            Update Location
+        </button>
+
+        <a href="/" class="back-link">
+            ← Back to dashboard
+        </a>
+
+    </form>
+
+</div>
+```
+
+</div>
+
+{% endblock %}

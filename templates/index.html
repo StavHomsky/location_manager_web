@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+    <h1>🌍 My Travel Locations</h1>
+    <p>Track your visited and dream destinations</p>
+</div>
+<div class="hero-actions">
+    <a href="/add" class="add-location-btn">+ Add New Location</a>
+</div>
+<form method="GET" class="filter-box">
+
+    <select name="filter_by" onchange="this.form.submit()">
+
+        <option value="">Filter Locations</option>
+
+        <option value="country"
+            {% if filter_by == 'country' %}selected{% endif %}>
+            Country
+        </option>
+
+        <option value="type"
+            {% if filter_by == 'type' %}selected{% endif %}>
+            Type
+        </option>
+
+    </select>
+
+    {% if filter_by == 'country' %}
+
+        <select name="filter_value">
+            <option value="">Choose country</option>
+
+            {% for country in all_countries %}
+            <option value="{{ country }}"
+                {% if filter_value == country %}selected{% endif %}>
+                {{ country }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Filter</button>
+
+    {% elif filter_by == 'type' %}
+
+        <select name="filter_value">
+            <option value="">Choose type</option>
+
+            {% for type in all_types %}
+            <option value="{{ type }}"
+                {% if filter_value == type %}selected{% endif %}>
+                {{ type }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Filter</button>
+
+    {% endif %}
+
+    {% if filter_by or filter_value %}
+        <a href="/" class="clear-filter-btn">Clear</a>
+    {% endif %}
+
+</form>
+<div class="stats-container">
+
+    <div class="stat-card">
+        <h2>{{ total_locations }}</h2>
+        <p>Total Locations</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ visited_count }}</h2>
+        <p>Visited</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ wishlist_count }}</h2>
+        <p>Wishlist</p>
+    </div>
+
+</div>
+
+<div class="locations-grid">
+
+    {% for location in locations %}
+
+    <div class="location-card">
+
+        <div class="card-header">
+
+            <div>
+                <h3>{{ location.name }}</h3>
+                <span class="country">
+                    {{ location.country }}
+                </span>
+            </div>
+
+            {% if location.visited %}
+                <span class="status visited">
+                    ✓ Visited
+                </span>
+            {% else %}
+                <span class="status wishlist">
+                    Wishlist
+                </span>
+            {% endif %}
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="info-row">
+                <span>Type</span>
+                <strong>{{ location.type }}</strong>
+            </div>
+
+            <div class="info-row">
+                <span>ID</span>
+                <strong>#{{ location.id }}</strong>
+            </div>
+
+        </div>
+
+        <div class="card-actions">
+
+            <a href="/edit/{{ location.id }}" class="edit-btn">
+                Edit
+            </a>
+
+            <a href="/delete/{{ location.id }}" class="delete-btn">
+                Delete
+            </a>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

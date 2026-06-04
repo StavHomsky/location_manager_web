@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Seoul",
+        "country": "South Korea",
+        "type": "city",
+        "visited": false
+    },
+    {
+        "id": 2,
+        "name": "Tokyo",
+        "country": "Japan",
+        "type": "city",
+        "visited": false
+    },
+    {
+        "id": 3,
+        "name": "Grand Canyon",
+        "country": "USA",
+        "type": "nature",
+        "visited": true
+    },
+    {
+        "id": 4,
+        "name": "Paris",
+        "country": "France",
+        "type": "city",
+        "visited": true
+    },
+    {
+        "id": 5,
+        "name": "Barcelona",
+        "country": "Spain",
+        "type": "city",
+        "visited": true
+    },
+    {
+        "id": 6,
+        "name": "Madrid",
+        "country": "Spain",
+        "type": "city",
+        "visited": false
+    },
+    {
+        "id": 7,
+        "name": "Val Thorens",
+        "country": "France",
+        "type": "ski",
+        "visited": true
+    },
+    {
+        "id": 8,
+        "name": "Mayerhofen",
+        "country": "Austria",
+        "type": "ski",
+        "visited": true
+    }
+]
